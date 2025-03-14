@@ -1,9 +1,11 @@
-import { useState } from "react";
+// Signup.js
+import React, { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import styles from "./styles.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGoogle, faFacebook, faGithub } from "@fortawesome/free-brands-svg-icons";
+import toast, { Toaster } from "react-hot-toast"; // Importer toast et Toaster
 
 const Signup = () => {
     const [data, setData] = useState({
@@ -14,12 +16,10 @@ const Signup = () => {
     });
 
     const [errors, setErrors] = useState({});
-    const [error, setError] = useState("");
     const navigate = useNavigate();
 
     const handleChange = ({ currentTarget: input }) => {
         setData({ ...data, [input.name]: input.value });
-        // Remove error when user starts typing
         if (errors[input.name]) {
             setErrors({ ...errors, [input.name]: null });
         }
@@ -27,27 +27,25 @@ const Signup = () => {
 
     const validateFields = () => {
         const newErrors = {};
-
         if (!data.firstName.trim()) newErrors.firstName = "First name is required";
         if (!data.lastName.trim()) newErrors.lastName = "Last name is required";
         if (!data.email.trim()) newErrors.email = "Email is required";
         if (!data.password.trim()) newErrors.password = "Password is required";
-
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0;
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (!validateFields()) return; // Stop submission if validation fails
+        if (!validateFields()) return;
 
         try {
             const { data: res } = await axios.post("http://localhost:8999/api/users", data);
-            navigate("/login");
-            console.log(res.message);
+            toast.success("Compte créé avec succès ! Redirection en cours..."); // Message de succès
+            setTimeout(() => navigate("/login"), 2000); // Rediriger après 2 secondes
         } catch (error) {
             if (error.response && error.response.status >= 400 && error.response.status <= 500) {
-                setError(error.response.data.message);
+                toast.error(error.response.data.message); // Message d'erreur
             }
         }
     };
@@ -107,14 +105,11 @@ const Signup = () => {
                         />
                         {errors.password && <p className={styles.error_msg}>{errors.password}</p>}
 
-                        {error && <div className={styles.error_msg}>{error}</div>}
-
                         <button type="submit" className="bg-cyan-900 text-white m-2 px-14 py-2 rounded-2xl">
                             Sign Up
                         </button>
                     </form>
 
-                    {/* Social Media Icons */}
                     <div className={styles.social_icons}>
                         <a href="#" className={styles.icon_link}>
                             <FontAwesomeIcon icon={faGoogle} size="2x" />
@@ -128,6 +123,7 @@ const Signup = () => {
                     </div>
                 </div>
             </div>
+            <Toaster /> {/* Ajouter le Toaster ici pour afficher les notifications */}
         </div>
     );
 };

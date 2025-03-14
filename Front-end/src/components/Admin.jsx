@@ -17,10 +17,10 @@ function Admin() {
      <Hero/>
      <About />
      <Services />
-     <Contact />
+     {/* <Contact /> */}
      <Testimonial />
      <Footer />
-     <Banner2 />
+     {/* <Banner2 /> */}
     </>
   )
 }

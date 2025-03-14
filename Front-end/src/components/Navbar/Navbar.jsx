@@ -9,18 +9,18 @@ import { Link } from "react-router-dom";
 export const Navlinks = [
   {
     id: 1,
-    name: "SERVICES",
-    link: "/Admin/#services",
+    name: "RESERVATION",
+    link: "/#services",
   },
   {
     id: 2,
-    name: "About",
-    link: "/Admin/#about",
+    name: "SERVICES",
+    link: "/#about",
   },
   {
     id: 3,
-    name: "JOIN",
-    link: "/Admin/#join",
+    name: "TESTIMONIALS",
+    link: "/#join",
   },
 ];
 const Navbar = () => {
