@@ -80,7 +80,7 @@ const validedata = () => {
 			/>
 			{errors.password && <p className={styles.error_msg}>{errors.password}</p>}
             {error && <div className={styles.error_msg}>{error}</div>}
-            <button type="submit" className={styles.green_btn}>
+            <button type="submit"  className="bg-cyan-900 text-white m-2 px-14 py-2 rounded-2xl">
               Sign In
             </button>
           </form>
@@ -99,7 +99,7 @@ const validedata = () => {
             </a>
           </div>
           <Link to="/signup">
-            <button type="button" className={styles.white_btn}>
+            <button type="button" className="bg-cyan-900 text-white m-2 px-14 py-2 rounded-2xl">
               Sign Up
             </button>
           </Link>

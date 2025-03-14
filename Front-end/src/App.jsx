@@ -1,21 +1,16 @@
 import React, { useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-// Component import
-import Navbar from "./components/Navbar/Navbar";
-import Hero from "./components/Hero/Hero";
-import About from "./components/About/About";
-import Services from "./components/Services/Services";
-import AppStoreBanner from "./components/AppStoreBanner/AppStoreBanner";
-import Contact from "./components/Contact/Contact";
-import Testimonial from "./components/Testimonials/Testimonials";
-import Footer from "./components/Footer/Footer";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import Banner2 from "./components/Banner2/Banner2";
+// Component imports
+import Admin from "./components/Admin";
+import Login from "./components/Login/index";
+import Signup from "./components/Singup/index";
 
 const App = () => {
+  const user = null; // Replace this with your user authentication logic
+
   useEffect(() => {
     AOS.init({
       offset: 100,
@@ -25,19 +20,19 @@ const App = () => {
     });
     AOS.refresh();
   }, []);
+
   return (
-    <div className="bg-white dark:bg-black dark:text-white text-black overflow-x-hidden">
-      <Navbar />
-      <Hero />
-      <About />
-      <Banner2 />
-      <About />
-      <Contact />
-      <Services />
-      <AppStoreBanner />
-      <Testimonial />
-      <Footer />
-    </div>
+      <Routes>
+        {/* If user is logged in, show AppStoreBanner; otherwise, redirect to login */}
+        <Route
+          path="/"
+          element={user ? <Admin /> : <Navigate replace to="/Admin" />}
+        />
+        <Route path="/Admin" element={<Admin />} />
+
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
+      </Routes>
   );
 };
 
