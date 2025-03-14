@@ -5,7 +5,7 @@ const authMiddleware = (req, res, next) => {
     if (!token) return res.status(401).json({ message: 'Accès refusé' });
 
     try {
-        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        const decoded = jwt.verify(token, process.env.JWTPRIVATEKEY);
         req.user = decoded;
         next();
     } catch (error) {

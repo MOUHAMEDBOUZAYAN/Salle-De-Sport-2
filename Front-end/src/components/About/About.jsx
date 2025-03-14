@@ -25,12 +25,11 @@ const About = () => {
                 </div>
               </div>
               <p data-aos="fade-up" className="leading-8 tracking-wide">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Aspernatur, magnam! Tenetur odio quo et maxime?
+              Nous sommes ravis de vous accueillir pour des séances d'entraînement sur mesure ! Nos coachs professionnels sont là pour vous guider et vous motiver à chaque étape.
+               Réservez dès maintenant pour vivre une expérience sportive unique.
               </p>
               <p data-aos="fade-up" data-aos-delay="300">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi,
-                tempora.
+              Des programmes adaptés à vos objectifs vous attendent. À très bientôt pour repousser vos limites ensemble !
               </p>
               <button data-aos="fade-up" className="button-outline">
                 Get Started
