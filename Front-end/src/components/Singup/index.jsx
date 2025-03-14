@@ -58,7 +58,7 @@ const Signup = () => {
                 <div className={styles.left}>
                     <h1>Welcome Back</h1>
                     <Link to="/login">
-                        <button type="button" className={styles.white_btn}>
+                        <button type="button" className="bg-cyan-900 text-white m-2 px-14 py-2 rounded-2xl">
                             Sign in
                         </button>
                     </Link>
@@ -109,7 +109,7 @@ const Signup = () => {
 
                         {error && <div className={styles.error_msg}>{error}</div>}
 
-                        <button type="submit" className={styles.green_btn}>
+                        <button type="submit" className="bg-cyan-900 text-white m-2 px-14 py-2 rounded-2xl">
                             Sign Up
                         </button>
                     </form>

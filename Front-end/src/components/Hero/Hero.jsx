@@ -1,5 +1,5 @@
 import React from "react";
-import BannerImg from "../../assets/hero.jpg";
+import BannerImg from "../../assets/hero.jpeg";
 import { motion } from "framer-motion";
 
 const BgStyle = {

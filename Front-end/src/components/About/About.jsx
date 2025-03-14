@@ -3,7 +3,7 @@ import BannerImg from "../../assets/banner.png";
 
 const About = () => {
   return (
-    <div className="py-14 dark:bg-black bg-slate-100 duration-300">
+    <div className="py-14 dark:bg-black bg-slate-100 duration-300" id="about">
       <div className="container">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 place-items-center">
           <div data-aos="fade-up">
