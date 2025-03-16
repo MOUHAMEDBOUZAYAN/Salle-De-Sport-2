@@ -37,7 +37,7 @@ const Navbar = () => {
   return (
     <div
       className="relative z-10 shadow-md w-full dark:bg-black dark:text-white duration-300
-    "
+      "
     >
       <div className="container">
         <div className="flex justify-between items-center">
@@ -47,10 +47,10 @@ const Navbar = () => {
           </div>
           <div>
             {/* <img
-              src={Logo}
-              alt=""
-              className="w-16 sm:w-24 absolute top-0 left-0 sm:left-1/2 sm:-translate-x-1/2 m-2 sm:m-0 "
-            /> */}
+                src={Logo}
+                alt=""
+                className="w-16 sm:w-24 absolute top-0 left-0 sm:left-1/2 sm:-translate-x-1/2 m-2 sm:m-0 "
+              /> */}
           </div>
           <nav className="hidden md:block">
             <ul className="flex items-center gap-8">

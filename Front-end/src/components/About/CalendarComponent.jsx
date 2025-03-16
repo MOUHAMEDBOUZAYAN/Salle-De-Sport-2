@@ -5,8 +5,8 @@ import "react-big-calendar/lib/css/react-big-calendar.css";
 
 const localizer = momentLocalizer(moment);
 
-const CalendarComponent = ({ onSelectSlot }) => {
-  const [events, setEvents] = useState([]);
+const CalendarComponent = ({ onSelectSlot, initialEvent }) => {
+  const [events, setEvents] = useState(initialEvent ? [initialEvent] : []);
 
   const handleSelectSlot = (slotInfo) => {
     const newEvent = {
@@ -14,7 +14,7 @@ const CalendarComponent = ({ onSelectSlot }) => {
       start: slotInfo.start,
       end: slotInfo.end,
     };
-    setEvents([...events, newEvent]);
+    setEvents([newEvent]);
     onSelectSlot(newEvent); // Passer l'événement sélectionné au parent
   };
 
