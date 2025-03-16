@@ -32,7 +32,7 @@ const About = () => {
               Des programmes adaptés à vos objectifs vous attendent. À très bientôt pour repousser vos limites ensemble !
               </p>
               <button data-aos="fade-up" className="button-outline">
-                Get Started
+                RESERVER
               </button>
             </div>
           </div>
